@@ -90,6 +90,24 @@ StableTrace is a full-stack telemetry and risk monitoring dashboard for the glob
 
 4. Open `http://localhost:3000` in your browser.
 
+## Deployment
+
+StableTrace is a full-stack application. We recommend a split deployment strategy:
+
+### 1. Frontend (Vercel/Netlify)
+
+- Connect your GitHub repository.
+- Set **Root Directory** to `app`.
+- Set **Framework Preset** to Next.js.
+- Add environment variable: `NEXT_PUBLIC_API_URL` pointing to your deployed backend.
+
+### 2. Backend (Railway/Render)
+
+- Connect your GitHub repository.
+- Set **Root Directory** to `.` (root).
+- The included `Dockerfile` will be automatically detected.
+- **Persistent Storage**: Ensure you mount a volume for `/warehouse` or `stabletrace.db` if you want data to persist across restarts.
+
 ## Project Structure
 
 - `/api`: FastAPI application and database logic.
