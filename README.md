@@ -4,8 +4,6 @@ Stablecoin Telemetry & Risk Observatory
 
 StableTrace is a full-stack telemetry and risk monitoring dashboard for the global stablecoin market. It aggregates real-time supply data, price feeds, and sanctions lists to provide a comprehensive view of the stablecoin ecosystem.
 
-![StableTrace Dashboard](docs/dashboard_preview.png)
-
 ## Features
 
 - **Market Dashboard**: Real-time total supply tracking, historical trends, and top asset breakdowns (sourced from DefiLlama).
