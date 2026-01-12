@@ -1,0 +1,43 @@
+name: StableTrace CI
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v4
+    
+    # 1. Test Backend
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.10'
+        
+    - name: Install Python dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+        
+    # 2. Test Frontend
+    - name: Set up Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '18'
+        cache: 'npm'
+        cache-dependency-path: app/package-lock.json
+        
+    - name: Install Node dependencies
+      run: |
+        cd app
+        npm ci
+        
+    - name: Build Frontend
+      run: |
+        cd app
+        npm run build
