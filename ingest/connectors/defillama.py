@@ -154,10 +154,6 @@ def normalize_and_save(assets):
     conn.close()
     logger.info(f"Ingested {len(supply_rows)} supply records and {len(price_rows)} price records.")
 
-    conn.commit()
-    conn.close()
-    logger.info(f"Ingested {len(supply_rows)} supply records and {len(price_rows)} price records.")
-
 def ingest_defillama():
     data = fetch_defillama_data()
     normalize_and_save(data)
