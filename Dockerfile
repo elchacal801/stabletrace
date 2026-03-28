@@ -1,7 +1,7 @@
 # Multi-stage build for full-stack app
 
 # Stage 1: Build Frontend
-FROM node:20-alpine AS frontend-builder
+FROM node:25-alpine AS frontend-builder
 WORKDIR /app-frontend
 COPY app/package*.json ./
 RUN npm ci
